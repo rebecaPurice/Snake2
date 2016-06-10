@@ -8,7 +8,7 @@
         Form1.Hide()
         scoremax = Form1.scoremax
         labelScorMaxim.Text = scoremax
-        pb_Field.BackgroundImage = My.Resources.level1
+        pb_Field.BackgroundImage = My.Resources.grr
         pb_Field.BackgroundImageLayout = ImageLayout.Stretch
         PictureBox1.Parent = pb_Field
         pb_Field.SendToBack()

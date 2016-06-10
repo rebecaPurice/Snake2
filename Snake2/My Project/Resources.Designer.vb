@@ -170,15 +170,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to 3.
-        '''</summary>
-        Friend ReadOnly Property score() As String
-            Get
-                Return ResourceManager.GetString("score", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         '''</summary>
         Friend ReadOnly Property Snake_Sound_Effects___Animation() As System.IO.UnmanagedMemoryStream

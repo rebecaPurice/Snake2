@@ -197,9 +197,6 @@
     <None Include="Resources\rocklevel3.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\head.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\corp.png" />
   </ItemGroup>
   <ItemGroup>
@@ -209,13 +206,13 @@
     <None Include="Resources\score.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="score.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\speed.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\food1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\head.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
