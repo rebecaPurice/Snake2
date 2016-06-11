@@ -43,13 +43,7 @@
         length_of_snake += 1
         PictureBox4.Visible = True
         snake(length_of_snake) = PictureBox4
-        ' With snake(length_of_snake)
-        '.Height = 10
-        '.Width = 10
-        '.BackColor = Color.White
-        '.Top = r.Next(pb_Field.Top + pb_Field.Bottom) / 2 + 30 'apare random, dar in perimetrul pictureBox
-        '.Left = r.Next(pb_Field.Right - 30 + pb_Field.Left + 30) / 2 + 30
-        'End With
+
         Me.Controls.Add(snake(length_of_snake))
         snake(length_of_snake).BringToFront()
 
@@ -151,8 +145,17 @@
 
         If snake(0).Bounds.IntersectsWith(eat.Bounds) Then
             lengthenSnake()
-            eat.Top = r.Next(pb_Field.Top, pb_Field.Bottom - 10)
-            eat.Left = r.Next(pb_Field.Left, pb_Field.Right - 10)
+            Do
+                eat.Top = r.Next(pb_Field.Top, pb_Field.Bottom - 10)
+                eat.Left = r.Next(pb_Field.Left, pb_Field.Right - 10)
+                If eat.Bounds.IntersectsWith(rock.Bounds) Or eat.Bounds.IntersectsWith(rock2.Bounds) Then
+                    eat.Visible = False
+
+                End If
+            Loop Until eat.Bounds <> rock.Bounds And eat.Bounds <> rock2.Bounds
+            If eat.Bounds.IntersectsWith(rock.Bounds) Or eat.Bounds.IntersectsWith(rock2.Bounds) Then
+                create_eat()
+            End If
             score = score + 1
             lbscore.Text = score
             My.Computer.Audio.Play(My.Resources.You_win_sound_effect_1, AudioPlayMode.Background)
@@ -189,18 +192,12 @@
         End If
 
     End Sub
-    Private Sub collide_With_spRock() 'ultima modificare aici - increment/decrement speed
-        If spRock.BackColor = Color.Black Then
-            If snake(0).Bounds.IntersectsWith(spRock.Bounds) Then
-                ' MsgBox("Verifica negru")
-                tm_snakeMover.Interval += 20
-                spRock.BackColor = Color.Green 'nu face asta..?!
-            End If
-        End If
+    Private Sub collide_With_spRock()
+
 
         If snake(0).Bounds.IntersectsWith(spRock.Bounds) Then
 
-            tm_snakeMover.Interval -= 20
+            tm_snakeMover.Interval = 35
             spRock.BackColor = Color.Black
             spRock.Hide()
 
@@ -222,7 +219,7 @@
         Next
     End Sub
 #End Region
-#Region "Eat" 'iarba
+#Region "Eat" 'creare mancare
     Dim eat As PictureBox
     Private Sub create_eat()
         eat = New PictureBox
@@ -244,7 +241,6 @@
 #Region "Rocks" 'intersectare cu obstacole => game over, patratel rosu pentru obstacol, verde pentru speed
     Dim rock As PictureBox
     Dim rock2 As PictureBox
-
     Dim spRock As PictureBox
     Private Sub create_Rock()
 
@@ -255,13 +251,7 @@
     End Sub
     Private Sub create_SpeedRock()
         spRock = PictureBox2
-        'With spRock
-        '.Height = 8
-        '.Width = 8
-        '.BackColor = Color.Red
-        '.Top = r.Next(pb_Field.Top, pb_Field.Bottom - 10)
-        '.Left = r.Next(pb_Field.Left, pb_Field.Right - 10)
-        'End With
+
         Me.Controls.Add(spRock)
         spRock.BringToFront()
     End Sub
@@ -277,8 +267,6 @@
             check = False
         End If
     End Sub
-
-
 #End Region
 #Region "Scor "
     Public Sub Scor_maxim()

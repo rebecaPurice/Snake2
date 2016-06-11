@@ -70,6 +70,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        '''</summary>
+        Friend ReadOnly Property Blackvariant_Button_Ui_Requests_13_Snake() As System.Drawing.Icon
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Blackvariant_Button_Ui_Requests_13_Snake", resourceCulture)
+                Return CType(obj,System.Drawing.Icon)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property corp() As System.Drawing.Bitmap
@@ -166,15 +176,6 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("rocklevel3", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to 3.
-        '''</summary>
-        Friend ReadOnly Property score() As String
-            Get
-                Return ResourceManager.GetString("score", resourceCulture)
             End Get
         End Property
         

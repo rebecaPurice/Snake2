@@ -8,14 +8,12 @@
         Form1.Hide()
         scoremax = Form1.scoremax
         labelScorMaxim.Text = scoremax
-        pb_Field.BackgroundImage = My.Resources.level1
+        pb_Field.BackgroundImage = My.Resources.grr
         pb_Field.BackgroundImageLayout = ImageLayout.Stretch
         PictureBox1.Parent = pb_Field
         pb_Field.SendToBack()
         PictureBox1.Visible = False
-        PictureBox2.Parent = pb_Field
-        pb_Field.SendToBack()
-        PictureBox2.Visible = False
+
         PictureBox3.Parent = pb_Field
         pb_Field.SendToBack()
         PictureBox3.Visible = False
@@ -39,13 +37,6 @@
         length_of_snake += 1
         PictureBox3.Visible = True
         snake(length_of_snake) = PictureBox3
-        ' With snake(length_of_snake)
-        '.Height = 10
-        '.Width = 10
-        '.BackColor = Color.Black
-        '.Top = r.Next(pb_Field.Top + pb_Field.Bottom) / 2 + 30 'apare random, dar in perimetrul pictureBox
-        '.Left = r.Next(pb_Field.Right - 30 + pb_Field.Left + 30) / 2 + 30
-        'End With
         Me.Controls.Add(snake(length_of_snake))
         snake(length_of_snake).BringToFront()
 
@@ -63,7 +54,7 @@
             Case "a"
                 left_right_mover = -12
                 up_down_mover = 0
-                tm_snakeMover.Interval = 50
+                tm_snakeMover.Interval = 50 ' creste viteza cand una dintre tastele de deplasare este mentinuta apasata
 
             Case "d"
                 left_right_mover = 12
@@ -78,7 +69,7 @@
                 up_down_mover = 12
                 tm_snakeMover.Interval = 50
             Case "p"
-                tm_snakeMover.Stop()
+                tm_snakeMover.Stop() 'tasta pentru pauza
         End Select
     End Sub
 
@@ -104,7 +95,7 @@
         With snake(length_of_snake)
             .Height = 12
             .Width = 12
-            .BackColor = Color.DarkOliveGreen
+            .BackColor = Color.Chocolate
             .BorderStyle = BorderStyle.Fixed3D
 
             .Top = snake(length_of_snake - 1).Top
@@ -183,14 +174,14 @@
         If tm_snakeMover.Interval = 50 Then
             If snake(0).Bounds.IntersectsWith(spRock.Bounds) Then
 
-                tm_snakeMover.Interval = _interval - 20
+                tm_snakeMover.Interval = 130
                 _interval = tm_snakeMover.Interval
 
                 spRock.BackColor = Color.Black
                 spRock.Hide()
             End If
         ElseIf snake(0).Bounds.IntersectsWith(spRock.Bounds) Then
-            tm_snakeMover.Interval -= 20
+            tm_snakeMover.Interval = 130
             _interval = tm_snakeMover.Interval
 
             spRock.BackColor = Color.Black
@@ -210,7 +201,7 @@
         Next
     End Sub
 #End Region
-#Region "Eat" 'iarba
+#Region "Eat" 'patratel verde care semnifica mancarea sarpelui
     Dim eat As PictureBox
     Private Sub create_eat()
         eat = New PictureBox
@@ -224,6 +215,7 @@
             .Top = r.Next(pb_Field.Top, pb_Field.Bottom - 10)
             .Left = r.Next(pb_Field.Left, pb_Field.Right - 10)
         End With
+
         Me.Controls.Add(eat)
         eat.BringToFront()
 
@@ -241,13 +233,6 @@
     Private Sub create_SpeedRock()
         PictureBox4.Visible = True
         spRock = PictureBox4
-        ' With spRock
-        '.Height = 8
-        '.Width = 8
-        '.BackColor = Color.Red
-        '.Top = r.Next(pb_Field.Top, pb_Field.Bottom - 10)
-        '.Left = r.Next(pb_Field.Left, pb_Field.Right - 10)
-        'End With
         Me.Controls.Add(spRock)
         spRock.BringToFront()
         
