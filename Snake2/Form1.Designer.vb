@@ -96,8 +96,8 @@ Partial Class Form1
         '
         Me.AboutToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
-        Me.AboutToolStripMenuItem.Text = "About"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
+        Me.AboutToolStripMenuItem.Text = "Author"
         '
         'ExitToolStripMenuItem
         '
@@ -111,9 +111,9 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Franklin Gothic Demi", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 50)
+        Me.Label1.Location = New System.Drawing.Point(4, 27)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(528, 374)
+        Me.Label1.Size = New System.Drawing.Size(575, 408)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = resources.GetString("Label1.Text")
         '
@@ -151,6 +151,7 @@ Partial Class Form1
         Me.Controls.Add(Me.MenuStrip1)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.MaximizeBox = False
         Me.Name = "Form1"

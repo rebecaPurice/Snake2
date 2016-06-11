@@ -13,9 +13,7 @@
         PictureBox1.Parent = pb_Field
         pb_Field.SendToBack()
         PictureBox1.Visible = False
-        PictureBox2.Parent = pb_Field ' pentru mancare floare
-        pb_Field.SendToBack()
-        PictureBox2.Visible = False
+
         PictureBox3.Parent = pb_Field
         pb_Field.SendToBack()
         PictureBox3.Visible = False
@@ -38,13 +36,6 @@
         length_of_snake += 1
         PictureBox3.Visible = True
         snake(length_of_snake) = PictureBox3
-        ' With snake(length_of_snake)
-        '.Height = 10
-        '.Width = 10
-        '.BackColor = Color.White
-        '.Top = r.Next(pb_Field.Top + pb_Field.Bottom) / 2 + 30 'apare random, dar in perimetrul pictureBox
-        '.Left = r.Next(pb_Field.Right - 30 + pb_Field.Left + 30) / 2 + 30
-        'End With
         Me.Controls.Add(snake(length_of_snake))
         snake(length_of_snake).BringToFront()
 
@@ -150,10 +141,19 @@
 
         If snake(0).Bounds.IntersectsWith(eat.Bounds) Then
             lengthenSnake()
-            eat.Top = r.Next(pb_Field.Top, pb_Field.Bottom - 10)
-            eat.Left = r.Next(pb_Field.Left, pb_Field.Right - 10)
+            Do
+                eat.Top = r.Next(pb_Field.Top, pb_Field.Bottom - 10)
+                eat.Left = r.Next(pb_Field.Left, pb_Field.Right - 10)
+                If eat.Bounds.IntersectsWith(rock.Bounds) Then
+                    eat.Visible = False
+
+                End If
+            Loop Until eat.Bounds <> rock.bounds
+            If eat.Bounds.IntersectsWith(rock.Bounds) Then
+                create_eat()
+            End If
             score = score + 1
-            lbscore.Text = score
+                    lbscore.Text = score
             My.Computer.Audio.Play(My.Resources.You_win_sound_effect_1, AudioPlayMode.Background)
             If score = 15 Then
                 Level3.Show()
@@ -185,7 +185,7 @@
 
         If snake(0).Bounds.IntersectsWith(spRock.Bounds) Then
 
-            tm_snakeMover.Interval -= 15
+            tm_snakeMover.Interval = 70
             spRock.BackColor = Color.Black
             spRock.Hide()
 
@@ -204,7 +204,7 @@
         Next
     End Sub
 #End Region
-#Region "Eat" 'iarba
+#Region "Eat" 'mancare
     Dim eat As PictureBox
     Private Sub create_eat()
         eat = New PictureBox
@@ -218,8 +218,9 @@
             .Top = r.Next(pb_Field.Top, pb_Field.Bottom - 10)
             .Left = r.Next(pb_Field.Left, pb_Field.Right - 10)
         End With
+
         Me.Controls.Add(eat)
-        eat.BringToFront()
+            eat.BringToFront()
 
     End Sub
 #End Region
@@ -234,13 +235,6 @@
     End Sub
     Private Sub create_SpeedRock()
         spRock = PictureBox4
-        ' With spRock
-        '.Height = 8
-        '.Width = 8
-        '.BackColor = Color.Red
-        '.Top = r.Next(pb_Field.Top, pb_Field.Bottom - 10)
-        '.Left = r.Next(pb_Field.Left, pb_Field.Right - 10)
-        'End With
         Me.Controls.Add(spRock)
         spRock.BringToFront()
     End Sub

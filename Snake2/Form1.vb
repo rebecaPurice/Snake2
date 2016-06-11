@@ -21,7 +21,7 @@
         Label1.Visible = False
         Label2.Visible = True
         PictureBox1.Visible = True
-        MsgBox("Purice Rebeca-Ligia, USV, FIESC, Calculatoare, anul II, grupa 3121A")
+        MsgBox("Purice Rebeca-Ligia, USV, FIESC, Calculatoare, anul II, grupa 3121A", MsgBoxStyle.ApplicationModal, "Snake Game - Author")
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click

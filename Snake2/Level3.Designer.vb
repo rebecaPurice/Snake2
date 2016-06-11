@@ -34,6 +34,7 @@ Partial Class Level3
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.labelScorMaxim = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pb_Field, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,19 +52,19 @@ Partial Class Level3
         Me.Label2.Font = New System.Drawing.Font("Modern No. 20", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(12, 416)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(48, 17)
+        Me.Label2.Size = New System.Drawing.Size(98, 17)
         Me.Label2.TabIndex = 26
-        Me.Label2.Text = "Scor: "
+        Me.Label2.Text = "Scor curent: "
         '
         'lbscore
         '
         Me.lbscore.AutoSize = True
         Me.lbscore.Font = New System.Drawing.Font("Modern No. 20", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbscore.Location = New System.Drawing.Point(72, 416)
+        Me.lbscore.Location = New System.Drawing.Point(116, 416)
         Me.lbscore.Name = "lbscore"
-        Me.lbscore.Size = New System.Drawing.Size(56, 17)
+        Me.lbscore.Size = New System.Drawing.Size(19, 17)
         Me.lbscore.TabIndex = 25
-        Me.lbscore.Text = "Label2"
+        Me.lbscore.Text = "L"
         '
         'tm_Rockdr
         '
@@ -116,7 +117,7 @@ Partial Class Level3
         '
         Me.labelScorMaxim.AutoSize = True
         Me.labelScorMaxim.Font = New System.Drawing.Font("Modern No. 20", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelScorMaxim.Location = New System.Drawing.Point(134, 416)
+        Me.labelScorMaxim.Location = New System.Drawing.Point(249, 416)
         Me.labelScorMaxim.Name = "labelScorMaxim"
         Me.labelScorMaxim.Size = New System.Drawing.Size(12, 17)
         Me.labelScorMaxim.TabIndex = 29
@@ -128,10 +129,20 @@ Partial Class Level3
         Me.PictureBox2.Image = Global.Snake2.My.Resources.Resources.food1
         Me.PictureBox2.Location = New System.Drawing.Point(119, 221)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(30, 30)
+        Me.PictureBox2.Size = New System.Drawing.Size(20, 20)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 30
         Me.PictureBox2.TabStop = False
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Modern No. 20", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(151, 416)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(92, 17)
+        Me.Label1.TabIndex = 31
+        Me.Label1.Text = "Scor record:"
         '
         'Level3
         '
@@ -140,6 +151,7 @@ Partial Class Level3
         Me.BackColor = System.Drawing.Color.Tan
         Me.ClientSize = New System.Drawing.Size(575, 442)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.labelScorMaxim)
         Me.Controls.Add(Me.PictureBox4)
@@ -174,4 +186,5 @@ Partial Class Level3
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents labelScorMaxim As Label
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label1 As Label
 End Class
